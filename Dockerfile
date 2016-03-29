@@ -1,4 +1,4 @@
-FROM logstash:1.5.2
+FROM logstash:2.0
 
 # Copy the already built gem and install.
 WORKDIR /plugins

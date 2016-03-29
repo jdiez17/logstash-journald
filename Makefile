@@ -1,5 +1,5 @@
-BASE=1.5.2
-TAG=$(BASE)-$(shell git rev-parse --short head)
+BASE=2.0
+TAG=$(BASE)-$(shell git rev-parse --short HEAD)
 
 all: tags
 
@@ -11,8 +11,8 @@ build: gem
 	docker build -f Dockerfile -t state/logstash-journald:$(TAG) .
 
 tags: build
-	docker tag -f state/logstash-journald:$(TAG) state/logstash-journald:$(BASE)
+	docker tag -f jdiez/logstash-journald:$(TAG) jdiez/logstash-journald:$(BASE)
 
 push: tags
-	docker push state/logstash-journald:$(TAG)
-	docker push state/logstash-journald:$(BASE)
+	docker push jdiez/logstash-journald:$(TAG)
+	docker push jdiez/logstash-journald:$(BASE)
